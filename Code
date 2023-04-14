@@ -1,0 +1,23 @@
+#include <bits/stdc++.h> 
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
+{
+    // Write your code here
+    auto it=find(arr.begin(),arr.end(),k);
+    pair<int,int> p;
+    if(it==arr.end())
+    {
+        p.first=p.second=-1;
+        return p;
+    }
+    p.first=distance(arr.begin(),it);
+    auto a=*it;
+    while (*it == a) 
+    {
+      it++;
+      p.second = distance(arr.begin(), it);
+    }
+    p.second-=1;
+    return p;
+}
+
+// This has been done without approaching Binary Search
