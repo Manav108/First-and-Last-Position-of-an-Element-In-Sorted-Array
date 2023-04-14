@@ -1,0 +1,17 @@
+#include <bits/stdc++.h> 
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
+{
+    // Write your code here
+    auto it=find(arr.begin(),arr.end(),k);
+    pair<int,int> p;
+    if(it==arr.end())
+    {
+        p.first=p.second=-1;
+        return p;
+    }    
+    auto it2=find(arr.crbegin()-1,arr.crend(),k);
+    p.first=distance(arr.begin(),it);
+    p.second=arr.size()-1-distance(arr.crbegin(),it2);
+    return p;
+}
+
